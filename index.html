@@ -53,6 +53,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--cream);
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -213,10 +214,10 @@
 
         /* ==================== HERO SECTION ==================== */
         .hero {
-            min-height: 100vh;
+            min-height: calc(100vh - 76px);
             display: flex;
             align-items: center;
-            padding-top: 84px;
+            padding-top: 76px;
             background:
                 linear-gradient(90deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.82) 38%, rgba(255, 111, 31, 0.18) 100%),
                 radial-gradient(circle at 82% 34%, rgba(255, 111, 31, 0.8), transparent 34%),
@@ -228,10 +229,10 @@
         .hero-container {
             max-width: 100%;
             margin: 0 auto;
-            padding: clamp(2rem, 6vh, 4.8rem) 3rem clamp(2rem, 5vh, 4rem);
+            padding: clamp(1rem, 2.5vh, 2.2rem) 3rem clamp(1rem, 2.5vh, 2rem);
             display: grid;
             grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
             width: 100%;
         }
@@ -244,7 +245,7 @@
         }
 
         .hero-badge {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .badge-text {
@@ -260,10 +261,10 @@
         }
 
         .hero-title {
-            font-size: 4.45rem;
+            font-size: clamp(3rem, 5vw, 4rem);
             font-weight: 800;
-            line-height: 1.08;
-            margin-bottom: 1.2rem;
+            line-height: 1.04;
+            margin-bottom: 0.85rem;
             color: var(--dark);
         }
 
@@ -275,23 +276,23 @@
         }
 
         .hero-subtitle {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.65rem;
             font-weight: 800;
         }
 
         .hero-description {
-            font-size: 1.35rem;
+            font-size: 1.15rem;
             color: var(--ink);
-            margin-bottom: 2.2rem;
-            line-height: 1.65;
+            margin-bottom: 1.35rem;
+            line-height: 1.5;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.35rem;
             flex-wrap: wrap;
         }
 
@@ -299,7 +300,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2.5rem;
+            padding: 0.82rem 1.8rem;
             border-radius: 16px;
             font-weight: 800;
             text-decoration: none;
@@ -318,7 +319,7 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 20px 42px -18px rgba(255, 79, 42, 0.9);
+            box-shadow: 0 20px 42px -18px rgba(255, 79, 42, 0.9), 0 0 20px rgba(255, 79, 42, 0.3);
         }
 
         .btn-secondary {
@@ -346,7 +347,7 @@
 
         .hero-stats {
             display: flex;
-            gap: 2.4rem;
+            gap: 1.8rem;
             flex-wrap: wrap;
         }
 
@@ -356,7 +357,7 @@
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.65rem;
             font-weight: 800;
             color: var(--dark);
         }
@@ -372,13 +373,13 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            min-height: min(560px, calc(100vh - 180px));
+            min-height: min(500px, calc(100vh - 170px));
             z-index: 1;
         }
 
         .avatar-circle {
-            width: clamp(360px, min(46vw, calc(100vh - 190px)), 620px);
-            height: clamp(360px, min(46vw, calc(100vh - 190px)), 620px);
+            width: clamp(320px, min(42vw, calc(100vh - 185px)), 520px);
+            height: clamp(320px, min(42vw, calc(100vh - 185px)), 520px);
             padding: 14px;
             background: linear-gradient(135deg, #ff8f3f 0%, #ff6f1f 48%, #d94018 100%);
             border-radius: 50%;
@@ -616,6 +617,10 @@
         }
 
         /* ==================== SKILLS SECTION ==================== */
+        .skills {
+            background: linear-gradient(135deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.9) 100%);
+        }
+
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -633,7 +638,8 @@
 
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 20px 40px -20px rgba(255, 79, 42, 0.5);
+            border-color: rgba(255, 79, 42, 0.3);
         }
 
         .category-header {
@@ -676,127 +682,261 @@
             background: var(--primary);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px -4px rgba(255, 79, 42, 0.4);
+        }
+
+        .stagger {
+            animation: slideInUp 0.6s ease both;
         }
 
         /* ==================== PROJECTS SECTION ==================== */
+        .projects {
+            background: linear-gradient(180deg, rgba(255, 247, 240, 0.92) 0%, rgba(255, 238, 228, 0.95) 100%);
+        }
+
+        .projects-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .project-counter {
+            padding: 1.25rem 1.5rem;
+            border-radius: 18px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .project-counter h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.45rem;
+        }
+
+        .project-counter p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .project-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-filter button {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 111, 31, 0.18);
+            color: var(--dark);
+            padding: 0.85rem 1.25rem;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .project-filter button:hover {
+            transform: translateY(-1px);
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(255, 79, 42, 0.15);
+        }
+
+        .project-filter button.active {
+            background: var(--primary);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 10px 22px -14px rgba(255, 79, 42, 0.7);
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 2rem;
         }
 
         .project-card {
+            display: grid;
+            grid-template-rows: auto 1fr;
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-10px);
+            box-shadow: 0 28px 60px -30px rgba(0, 0, 0, 0.24), 0 0 20px rgba(255, 79, 42, 0.1);
         }
 
-        .project-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 2rem;
-            text-align: center;
+        .project-image {
             position: relative;
+            min-height: 210px;
+            overflow: hidden;
         }
 
-        .project-badge {
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-category-pill {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--accent);
+            left: 1rem;
+            bottom: 1rem;
+            background: rgba(0, 0, 0, 0.55);
             color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .project-icon {
-            width: 70px;
-            height: 70px;
-            background: white;
-            border-radius: 20px;
-            display: flex;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto;
+            gap: 0.4rem;
+            backdrop-filter: blur(4px);
         }
 
-        .project-icon i {
-            font-size: 2rem;
-            color: var(--primary);
+        .project-category-pill i {
+            font-size: 0.95rem;
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .project-content h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
+            color: var(--dark);
         }
 
         .project-content p {
             color: var(--gray);
             margin-bottom: 1rem;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .project-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            background: var(--gray-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-pill i {
+            color: var(--primary-dark);
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin: 1rem 0;
+            margin-bottom: 1.35rem;
         }
 
         .project-tech span {
-            background: var(--gray-light);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--primary);
+            background: rgba(255, 244, 238, 0.95);
+            border: 1px solid rgba(255, 111, 31, 0.18);
+            padding: 0.45rem 0.85rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .project-tech span:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 79, 42, 0.2);
         }
 
         .project-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: auto;
+            align-items: center;
         }
 
         .project-links a {
+            width: min-content;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s;
+            transition: all 0.25s ease;
         }
 
-        .live-link {
-            color: var(--primary);
+        .project-links a.view-project {
+            color: white;
+            background: var(--primary);
+            padding: 0.85rem 1.2rem;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 79, 42, 0.2);
         }
 
-        .github-link {
-            color: var(--gray);
+        .project-links a.view-project:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 79, 42, 0.35);
+        }
+
+        .project-links a.github-link {
+            color: var(--dark);
+            background: rgba(245, 245, 245, 0.95);
+            padding: 0.85rem 1.2rem;
+            border-radius: 14px;
         }
 
         .project-links a:hover {
-            gap: 0.75rem;
+            transform: translateY(-1px);
+        }
+
+        .project-links a.github-link:hover {
+            background: rgba(255, 111, 31, 0.12);
+            color: var(--primary);
         }
 
         /* ==================== REPOSITORIES SECTION ==================== */
+        .repositories {
+            background: linear-gradient(135deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.9) 100%);
+        }
         .repos-section {
             background: var(--gray-light);
         }
@@ -818,9 +958,9 @@
         }
 
         .repo-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg), 0 0 20px rgba(255, 79, 42, 0.1);
+            border-color: rgba(255, 79, 42, 0.2);
         }
 
         .repo-card h3 {
@@ -850,7 +990,7 @@
 
         /* ==================== EXPERIENCE SECTION ==================== */
         .experience {
-            background: var(--white);
+            background: linear-gradient(135deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.9) 100%);
         }
 
         .timeline {
@@ -895,7 +1035,7 @@
 
         .timeline-content:hover {
             transform: translateX(5px);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-sm), 0 0 15px rgba(255, 79, 42, 0.1);
         }
 
         .timeline-content h3 {
@@ -931,6 +1071,10 @@
         }
 
         /* ==================== ACHIEVEMENTS SECTION ==================== */
+        .achievements {
+            background: linear-gradient(135deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.9) 100%);
+        }
+
         .achievements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -948,7 +1092,7 @@
 
         .achievement-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-lg), 0 0 20px rgba(255, 79, 42, 0.1);
         }
 
         .achievement-card i {
@@ -968,6 +1112,10 @@
         }
 
         /* ==================== CONTACT SECTION ==================== */
+        .contact {
+            background: linear-gradient(135deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.9) 100%);
+        }
+
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -991,7 +1139,7 @@
 
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-md), 0 0 15px rgba(255, 79, 42, 0.1);
         }
 
         .contact-card i {
@@ -1033,6 +1181,20 @@
             font-family: inherit;
             transition: all 0.3s;
             font-size: 0.9rem;
+            background: var(--white);
+        }
+
+        .contact-form input:hover,
+        .contact-form textarea:hover {
+            border-color: rgba(255, 79, 42, 0.2);
+        }
+
+        .contact-helper {
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.85;
         }
 
         .contact-form input:focus,
@@ -1040,13 +1202,16 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(255, 111, 31, 0.14);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
         }
 
         /* ==================== FOOTER ==================== */
         .footer {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2625 100%);
             color: white;
             padding: 4rem 0 2rem;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.1);
         }
 
         .footer-content {
@@ -1160,27 +1325,31 @@
         /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 1024px) {
             .nav-container {
-                padding: 1rem 1.5rem;
+                padding: 0.85rem 1.5rem;
             }
             .nav-links {
                 gap: 1.2rem;
             }
             .hero-title {
-                font-size: 3.25rem;
+                font-size: 3rem;
             }
             .avatar-circle {
-                width: clamp(320px, min(440px, 46vw, calc(100vh - 160px)), 440px);
-                height: clamp(320px, min(440px, 46vw, calc(100vh - 160px)), 440px);
+                width: clamp(280px, min(400px, 42vw, calc(100vh - 180px)), 400px);
+                height: clamp(280px, min(400px, 42vw, calc(100vh - 180px)), 400px);
                 font-size: 7rem;
             }
         }
 
         @media (max-width: 968px) {
+            .hero {
+                min-height: auto;
+                padding-top: 68px;
+            }
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 1.4rem;
-                padding: 1.4rem 1.5rem 3rem;
+                gap: 0.85rem;
+                padding: 1rem 1.5rem 1.6rem;
             }
             .hero-content {
                 margin: 0 auto;
@@ -1243,17 +1412,41 @@
                 font-size: 2rem;
             }
             .hero-title {
-                font-size: 2.35rem;
+                font-size: 2rem;
+                margin-bottom: 0.6rem;
             }
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.05rem;
+                margin-bottom: 0.5rem;
             }
             .hero-description {
-                font-size: 1.05rem;
-                margin-bottom: 1.4rem;
+                font-size: 0.98rem;
+                line-height: 1.45;
+                margin-bottom: 1rem;
             }
             .hero-buttons {
-                margin-bottom: 1.4rem;
+                gap: 0.7rem;
+                margin-bottom: 1rem;
+            }
+            .hero-badge {
+                margin-bottom: 0.7rem;
+            }
+            .badge-text {
+                padding: 0.35rem 0.9rem;
+                font-size: 0.72rem;
+            }
+            .btn {
+                padding: 0.72rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            .hero-stats {
+                gap: 1.2rem;
+            }
+            .stat-number {
+                font-size: 1.35rem;
+            }
+            .stat-label {
+                font-size: 0.78rem;
             }
             .container {
                 padding: 0 1rem;
@@ -1262,8 +1455,8 @@
                 padding: 4rem 0;
             }
             .avatar-circle {
-                width: clamp(210px, min(70vw, 300px, calc(100vh - 320px)), 300px);
-                height: clamp(210px, min(70vw, 300px, calc(100vh - 320px)), 300px);
+                width: clamp(170px, min(54vw, 240px, calc(100vh - 430px)), 240px);
+                height: clamp(170px, min(54vw, 240px, calc(100vh - 430px)), 240px);
                 padding: 8px;
                 font-size: 5rem;
             }
@@ -1473,76 +1666,128 @@
                     <div class="skills-list">
                         <span class="skill-item">Python</span>
                         <span class="skill-item">SQL</span>
-                        <span class="skill-item">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-brain"></i>
-                        <h3>Machine Learning & AI</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-item">Scikit-learn</span>
-                        <span class="skill-item">TensorFlow</span>
-                        <span class="skill-item">PyTorch</span>
-                        <span class="skill-item">XGBoost</span>
-                        <span class="skill-item">Random Forest</span>
-                        <span class="skill-item">LLMs</span>
-                        <span class="skill-item">LangChain</span>
-                        <span class="skill-item">RAG</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="category-header">
                         <i class="fas fa-chart-bar"></i>
-                        <h3>Data Science & Analytics</h3>
+                        <h3>Data Analysis / Data Science</h3>
                     </div>
                     <div class="skills-list">
                         <span class="skill-item">Pandas</span>
                         <span class="skill-item">NumPy</span>
-                        <span class="skill-item">EDA</span>
-                        <span class="skill-item">Feature Engineering</span>
-                        <span class="skill-item">Statistical Analysis</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Visualization</h3>
-                    </div>
-                    <div class="skills-list">
                         <span class="skill-item">Matplotlib</span>
                         <span class="skill-item">Seaborn</span>
                         <span class="skill-item">Plotly</span>
-                        <span class="skill-item">Power BI</span>
-                        <span class="skill-item">Tableau</span>
+                        <span class="skill-item">SciPy</span>
+                        <span class="skill-item">Data Cleaning</span>
+                        <span class="skill-item">Data Preprocessing</span>
+                        <span class="skill-item">Exploratory Data Analysis (EDA)</span>
+                        <span class="skill-item">Data Visualization</span>
+                        <span class="skill-item">Statistical Analysis</span>
+                        <span class="skill-item">Hypothesis Testing</span>
+                        <span class="skill-item">Time Series Analysis</span>
+                        <span class="skill-item">Feature Engineering</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="category-header">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <h3>Deployment & APIs</h3>
+                        <i class="fas fa-brain"></i>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">XGBoost</span>
+                        <span class="skill-item">LightGBM</span>
+                        <span class="skill-item">Linear Regression</span>
+                        <span class="skill-item">Logistic Regression</span>
+                        <span class="skill-item">Decision Trees</span>
+                        <span class="skill-item">Random Forest</span>
+                        <span class="skill-item">Gradient Boosting</span>
+                        <span class="skill-item">K-Nearest Neighbors (KNN)</span>
+                        <span class="skill-item">Support Vector Machine (SVM)</span>
+                        <span class="skill-item">Data Scaling (Standardization, Normalization)</span>
+                        <span class="skill-item">Feature Selection</span>
+                        <span class="skill-item">Model Training</span>
+                        <span class="skill-item">Model Evaluation</span>
+                        <span class="skill-item">Cross-Validation</span>
+                        <span class="skill-item">Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)</span>
+                        <span class="skill-item">Pipeline Creation</span>
+                        <span class="skill-item">Model Optimization</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-language"></i>
+                        <h3>Natural Language Processing (NLP)</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-item">NLTK</span>
+                        <span class="skill-item">SpaCy</span>
+                        <span class="skill-item">Transformers (Hugging Face)</span>
+                        <span class="skill-item">BERT</span>
+                        <span class="skill-item">TF-IDF</span>
+                        <span class="skill-item">Bag of Words</span>
+                        <span class="skill-item">Text Preprocessing (Tokenization, Stopword Removal, Lemmatization)</span>
+                        <span class="skill-item">Sentiment Analysis</span>
+                        <span class="skill-item">Text Classification</span>
+                        <span class="skill-item">Language Translation</span>
+                        <span class="skill-item">Named Entity Recognition (NER)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-robot"></i>
+                        <h3>Deep Learning</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">Keras</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">Artificial Neural Networks (ANN)</span>
+                        <span class="skill-item">Convolutional Neural Networks (CNN)</span>
+                        <span class="skill-item">Recurrent Neural Networks (RNN)</span>
+                        <span class="skill-item">Image Processing</span>
+                        <span class="skill-item">Object Detection</span>
+                        <span class="skill-item">Optical Character Recognition (OCR)</span>
+                        <span class="skill-item">Transfer Learning</span>
+                        <span class="skill-item">Model Training</span>
+                        <span class="skill-item">Model Optimization</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Deployment & Backend</h3>
                     </div>
                     <div class="skills-list">
                         <span class="skill-item">Streamlit</span>
                         <span class="skill-item">FastAPI</span>
-                        <span class="skill-item">Gradio</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">API Development</span>
+                        <span class="skill-item">Model Deployment</span>
+                        <span class="skill-item">Real-time Inference</span>
+                        <span class="skill-item">Web App Integration</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="category-header">
-                        <i class="fas fa-tools"></i>
-                        <h3>MLOps & Tools</h3>
+                        <i class="fas fa-cogs"></i>
+                        <h3>Advanced / MLOps & Engineering</h3>
                     </div>
                     <div class="skills-list">
-                        <span class="skill-item">Git/GitHub</span>
-                        <span class="skill-item">MLflow</span>
-                        <span class="skill-item">Model Serialization</span>
-                        <span class="skill-item">CI/CD</span>
-                        <span class="skill-item">VS Code</span>
-                        <span class="skill-item">Jupyter</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">GitHub Actions (or basic CI/CD pipelines)</span>
+                        <span class="skill-item">AWS (EC2, S3)</span>
+                        <span class="skill-item">GCP (Basics)</span>
+                        <span class="skill-item">Machine Learning Pipelines</span>
+                        <span class="skill-item">Model Versioning</span>
+                        <span class="skill-item">Experiment Tracking</span>
+                        <span class="skill-item">Performance Optimization</span>
+                        <span class="skill-item">Scalable System Design</span>
+                        <span class="skill-item">Logging & Monitoring</span>
                     </div>
                 </div>
             </div>
@@ -1553,91 +1798,405 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Projects</h2>
                 <div class="section-line"></div>
-                <p class="section-subtitle">Real-world AI solutions I've built</p>
+                <p class="section-subtitle">A showcase of real-world problem solving using Data, Machine Learning, NLP, and Deep Learning</p>
+            </div>
+            <div class="projects-summary">
+                <div class="project-counter">
+                    <h3 data-plus="true">15+</h3>
+                    <p>Projects completed across analytics, ML, NLP, and deep learning domains.</p>
+                </div>
+                <div class="project-counter">
+                    <h3>4</h3>
+                    <p>Focused domains: Data Analysis, Machine Learning, NLP, and Deep Learning.</p>
+                </div>
+                <div class="project-counter">
+                    <h3 data-plus="true">6+</h3>
+                    <p>Live deployments and interactive demos built with Streamlit, FastAPI, and modern model stacks.</p>
+                </div>
+            </div>
+            <div class="project-filter" role="tablist" aria-label="Project categories">
+                <button class="active" data-category="all"><i class="fas fa-th-large"></i> All</button>
+                <button data-category="data-analysis"><i class="fas fa-chart-line"></i> Data Analysis</button>
+                <button data-category="machine-learning"><i class="fas fa-robot"></i> Machine Learning</button>
+                <button data-category="nlp"><i class="fas fa-language"></i> NLP</button>
+                <button data-category="deep-learning"><i class="fas fa-brain"></i> Deep Learning</button>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-badge">⭐ Featured</div>
-                        <div class="project-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3808517/pexels-photo-3808517.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Uber Data Analysis" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-chart-line"></i> Data Analysis</span>
                     </div>
                     <div class="project-content">
-                        <h3>AI Data Analysis Application</h3>
-                        <p>Intelligent data analysis platform that automates insights generation, pattern detection, and provides actionable recommendations using ML algorithms.</p>
+                        <span class="project-pill"><i class="fas fa-chart-bar"></i> Data Analysis</span>
+                        <h3>Uber Data Analysis</h3>
+                        <p>Engineered a production-grade ride-share analytics pipeline to model demand, surge pricing, and regional utilization. Conducted rigorous data cleaning, temporal feature engineering, and correlation analysis to expose service optimization levers. Delivered actionable forecasts and efficiency recommendations for operational decision-making.</p>
                         <div class="project-tech">
                             <span>Python</span>
-                            <span>Streamlit</span>
                             <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>SQL</span>
+                            <span>Matplotlib</span>
+                            <span>Seaborn</span>
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Automatic Data Analysis App" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-cogs"></i> Data Analysis</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-robot"></i> Automation</span>
+                        <h3>Automatic Data Analysis App</h3>
+                        <p>Architected an automated analytics engine to turn raw datasets into prioritized insights without manual intervention. Built end-to-end preprocessing, anomaly detection, and adaptive feature profiling pipelines, then surfaced results through a stakeholder-ready Streamlit interface. Accelerated exploratory analysis while preserving production-grade data hygiene.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>Streamlit</span>
                             <span>Plotly</span>
                             <span>Scikit-learn</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://aidataanalyst2026.streamlit.app/" target="_blank" class="live-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-badge">⭐ Featured</div>
-                        <div class="project-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Job Listing Analysis" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-briefcase"></i> Data Analysis</span>
                     </div>
                     <div class="project-content">
-                        <h3>Real Estate Price Prediction</h3>
-                        <p>Production-oriented ML system for property price prediction with 85% accuracy. Implements ensemble regression with hyperparameter optimization.</p>
+                        <span class="project-pill"><i class="fas fa-search"></i> Job Market</span>
+                        <h3>Job Listing Analysis</h3>
+                        <p>Led talent-market intelligence by normalizing job listings, extracting semantic skills, and clustering demand signals. Applied NLP-driven feature extraction, salary benchmarking, and trend segmentation to identify high-priority roles. Delivered recruiting recommendations that increased hiring precision and surfaced emerging skill gaps.</p>
                         <div class="project-tech">
                             <span>Python</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>NLTK</span>
+                            <span>SpaCy</span>
+                            <span>Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Startup Funding Analysis" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-rocket"></i> Data Analysis</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-dollar-sign"></i> Funding</span>
+                        <h3>Startup Funding Analysis</h3>
+                        <p>Designed a venture intelligence solution to uncover funding success factors across seed and early-stage startups. Processed noisy investment data, engineered growth and valuation features, and validated tree-based models to identify high-conviction opportunities. Delivered investor-ready analytics that clarified portfolio allocation and founder strategy.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>Plotly</span>
+                            <span>Scikit-learn</span>
                             <span>XGBoost</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai/Startup_Funding_Analysis" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai/Startup_Funding_Analysis" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data-analysis">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e14c?auto=format&fit=crop&w=1200&q=80" alt="IPL Dashboard" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-trophy"></i> Data Analysis</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-table"></i> Sports Analytics</span>
+                        <h3>IPL Dashboard</h3>
+                        <p>Built a high-impact sports analytics dashboard that surfaces player performance, match momentum, and strategic decision metrics. Curated live-filtered visualizations with advanced aggregation and efficiency scores to support team strategy. Enabled data-driven match planning and performance review across the IPL season.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Plotly</span>
+                            <span>Dash</span>
+                            <span>SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai/IPL_Dashboard" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai/IPL_Dashboard" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="machine-learning">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Financial Risk Assessment Model" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-shield-alt"></i> ML</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-piggy-bank"></i> Risk Assessment</span>
+                        <h3>Financial Risk Assessment Model</h3>
+                        <p>Engineered a credit risk scoring system to model borrower exposure using structured financial signals and behavioral analytics. Built an optimized LightGBM pipeline with stratified cross-validation, hyperparameter tuning, and calibration for robust ROC-AUC performance. Deployed the model through FastAPI to support faster, risk-aware underwriting decisions.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>LightGBM</span>
+                            <span>FastAPI</span>
+                            <span>Cross-validation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://agent-69efa8ffd18e176--vermillion-souffle-b5c8fc.netlify.app/" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="machine-learning">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/1036808/pexels-photo-1036808.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Churn Prediction & Retention Analysis" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-users"></i> ML</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-user-friends"></i> Retention</span>
+                        <h3>Churn Prediction & Retention Analysis</h3>
+                        <p>Developed a retention analytics platform to identify customers at risk of churn and prescribe intervention strategies. Engineered behavior-based features, trained ensemble classifiers with grid search, and applied SHAP explainability to surface underlying churn drivers. Delivered actionable retention levers that support revenue preservation and growth.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>SHAP</span>
+                            <span>Streamlit</span>
+                            <span>Hyperparameter Tuning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://churn-prediction-retention-analysis.streamlit.app/" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="machine-learning">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Real Estate Recommendation System" loading="lazy">
+                        <span class="project-category-pill"><i class="fas fa-home"></i> ML</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-map-marked-alt"></i> Recommendation</span>
+                        <h3>Real Estate Recommendation System</h3>
+                        <p>Built a hybrid recommendation engine to match buyers with high-value property listings based on preference, location, and price sensitivity. Engineered ranking features, combined collaborative and content-based similarity signals, and deployed a scalable inference service via FastAPI. Delivered a precise recommendation workflow that accelerates buyer decision-making.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
                             <span>Scikit-learn</span>
                             <span>Streamlit</span>
-                            <span>Pandas</span>
+                            <span>FastAPI</span>
+                            <span>Ranking</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="live-link" id="realEstateLink">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+                            <a href="https://realestate2026.streamlit.app/Recommendation" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-badge">🚀 In Development</div>
-                        <div class="project-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
+                <div class="project-card" data-category="machine-learning">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Heart Disease Prediction" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1580281657521-4b16ef6f1c6f?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-heartbeat"></i> ML</span>
                     </div>
                     <div class="project-content">
-                        <h3>LLM-Powered Document Q&A</h3>
-                        <p>RAG-based system for intelligent document querying using Large Language Models. Enables natural language interaction with documents.</p>
+                        <span class="project-pill"><i class="fas fa-notes-medical"></i> Healthcare</span>
+                        <h3>Heart Disease Prediction</h3>
+                        <p>Architected a clinical risk prediction model to identify heart disease probability from biometric and diagnostic features. Executed systematic preprocessing, feature selection, and classifier calibration to optimize recall and ROC-AUC. Delivered a reliable scoring engine for early intervention and patient prioritization.</p>
                         <div class="project-tech">
                             <span>Python</span>
-                            <span>LangChain</span>
-                            <span>OpenAI</span>
-                            <span>ChromaDB</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>Feature Engineering</span>
+                            <span>ROC-AUC</span>
+                            <span>Model Evaluation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="machine-learning">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/4386462/pexels-photo-4386462.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Diabetes prediction dashboard" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1580281657521-4b16ef6f1c6f?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-syringe"></i> ML</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-stethoscope"></i> FastAPI</span>
+                        <h3>Diabetes Prediction</h3>
+                        <p>Deployed a diabetes risk API that converts clinical inputs into real-time risk predictions. Implemented data preprocessing, scaling, and model validation before wrapping inference into a FastAPI endpoint for low-latency access. Delivered a production-ready service for clinical decision support and health workflow integration.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>FastAPI</span>
+                            <span>Data Preprocessing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="nlp">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Twitter Sentiment Analysis" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-twitter"></i> NLP</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-heart"></i> Sentiment</span>
+                        <h3>Twitter Sentiment Analysis</h3>
+                        <p>Built an enterprise sentiment monitoring pipeline to analyze public Twitter signals for brand and product intelligence. Implemented tokenization, text normalization, and sentiment classification with advanced NLP preprocessing. Delivered real-time insights that support reputation management and strategic decision-making.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>NLTK</span>
+                            <span>SpaCy</span>
+                            <span>Transformers</span>
                             <span>Streamlit</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="live-link" id="llmLink">
-                                <i class="fas fa-external-link-alt"></i> Coming Soon
-                            </a>
-                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="nlp">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Language Translator" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-language"></i> NLP</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-globe"></i> Translation</span>
+                        <h3>Language Translator</h3>
+                        <p>Developed a transformer-based translation service for seamless multilingual communication. Designed tokenization, sequence modeling, and inference pipelines to deliver low-latency text conversion. Deployed the model with FastAPI for scalable language interoperability across applications.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Transformers</span>
+                            <span>BERT</span>
+                            <span>FastAPI</span>
+                            <span>NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai/language-Translator" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai/language-Translator" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="nlp">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1515191107209-c28698631303?auto=format&fit=crop&w=1200&q=80" alt="Movie Review Analysis" loading="lazy">
+                        <span class="project-category-pill"><i class="fas fa-film"></i> NLP</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-star"></i> Reviews</span>
+                        <h3>Movie Review Analysis</h3>
+                        <p>Built a review analytics engine to classify sentiment and surface thematic viewer insights from film critiques. Engineered text features, leveraged NLP pipelines, and evaluated models using precision, recall, and F1-score. Delivered audience intelligence that supports content strategy and product messaging.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>NLTK</span>
+                            <span>SpaCy</span>
+                            <span>Plotly</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="deep-learning">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?auto=format&fit=crop&w=1200&q=80" alt="Color Detection Model" loading="lazy" onerror="this.onerror=null;this.src='https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1200'">
+                        <span class="project-category-pill"><i class="fas fa-eye-dropper"></i> Deep Learning</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-palette"></i> Vision</span>
+                        <h3>Color Detection Model</h3>
+                        <p>Engineered a deep learning computer vision pipeline to detect color attributes with high precision in imagery. Trained TensorFlow models on augmented datasets and integrated OpenCV preprocessing for robust inference. Delivered real-time detection suitable for image analytics and automation workflows.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Keras</span>
+                            <span>OpenCV</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="deep-learning">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Number Plate Detection with OCR" loading="lazy">
+                        <span class="project-category-pill"><i class="fas fa-car"></i> Deep Learning</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-id-card"></i> OCR</span>
+                        <h3>Number Plate Detection with OCR</h3>
+                        <p>Built a license plate capture pipeline by combining deep detection and OCR to automate vehicle identification. Employed TensorFlow and OpenCV for plate localization, then applied Tesseract and post-processing to extract high-confidence text. Delivered a reliable system for traffic automation and enforcement use cases.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>OpenCV</span>
+                            <span>Tesseract</span>
+                            <span>OCR</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="deep-learning">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1200&q=80" alt="Moving Object Detection on National Highway" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&w=1200&q=80'">
+                        <span class="project-category-pill"><i class="fas fa-road"></i> Deep Learning</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-pill"><i class="fas fa-traffic-light"></i> Detection</span>
+                        <h3>Moving Object Detection on National Highway</h3>
+                        <p>Designed a highway video analytics pipeline that detects moving vehicles and hazards using real-time object detection and motion tracking. Implemented TensorFlow/YOLO detection with OpenCV tracking and inference optimization for high-frame-rate operation. Delivered scalable situational awareness for transportation safety systems.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>OpenCV</span>
+                            <span>YOLO</span>
+                            <span>Real-time Inference</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="view-project">View Project</a>
+                            <a href="https://github.com/Ram2002-ai" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -1674,40 +2233,39 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Machine Learning Engineer (Project-Based)</h3>
-                        <div class="timeline-date">2023 - Present</div>
-                        <ul>
-                            <li>Built end-to-end ML pipelines including data preprocessing, feature engineering, model training, and evaluation</li>
-                            <li>Implemented ensemble regression models with cross-validation and hyperparameter optimization achieving 85% accuracy</li>
-                            <li>Applied statistical analysis and feature importance techniques to extract key price-driving factors</li>
-                            <li>Developed deployment-ready applications using Streamlit and FastAPI for real-time inference</li>
-                            <li>Followed modular architecture and reproducible pipeline practices aligned with production ML standards</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>AI Application Developer</h3>
+                        <h3>Productized AI Engineer</h3>
                         <div class="timeline-date">2024 - Present</div>
                         <ul>
-                            <li>Developed interactive AI chatbot applications with structured logic and API integration</li>
-                            <li>Designed modular components for scalability and maintainability</li>
-                            <li>Implemented real-time response handling and user interaction flow</li>
-                            <li>Explored LLMs and RAG systems for advanced AI applications</li>
+                            <li>Delivered real-world ML products like the Financial Risk Assessment Model and Real Estate Recommendation System.</li>
+                            <li>Deployed production-grade services with Streamlit and FastAPI for direct business adoption.</li>
+                            <li>Implemented scalable inference pipelines with structured monitoring and performance metrics.</li>
+                            <li>Optimized model accuracy for predictive systems in finance, healthcare, and customer retention.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Data Science & ML Practitioner</h3>
-                        <div class="timeline-date">2022 - Present</div>
+                        <h3>Data Science & NLP Specialist</h3>
+                        <div class="timeline-date">2023 - 2024</div>
                         <ul>
-                            <li>Completed 10+ data science projects with real-world datasets</li>
-                            <li>Expertise in EDA, feature engineering, and model optimization</li>
-                            <li>Built interactive dashboards for data visualization and insights</li>
-                            <li>Continuously learning and implementing latest AI technologies</li>
+                            <li>Led analytics and NLP initiatives including Uber Data Analysis, Job Listing Analysis, and Twitter Sentiment Analysis.</li>
+                            <li>Built interactive dashboards and story-driven insights for commercial decision-making.</li>
+                            <li>Designed NLP pipelines for text classification, translation, and sentiment modeling.</li>
+                            <li>Applied advanced feature engineering and model explainability techniques across datasets.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Deep Learning & Computer Vision Practitioner</h3>
+                        <div class="timeline-date">2022 - 2023</div>
+                        <ul>
+                            <li>Built computer vision solutions like Color Detection, Number Plate OCR, and Highway Object Detection.</li>
+                            <li>Integrated TensorFlow, OpenCV, and OCR pipelines to automate image intelligence workflows.</li>
+                            <li>Delivered solutions with strong business relevance for safety, monitoring, and automation.</li>
+                            <li>Established reproducible model training and deployment practices aligned with production readiness.</li>
                         </ul>
                     </div>
                 </div>
@@ -1758,9 +2316,9 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-card">
-                        <i class="fas fa-phone-alt"></i>
-                        <h4>Phone</h4>
-                        <a href="tel:+919303216350">+91-9302163501</a>
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/919303216350" target="_blank">+91-9302163501</a>
                     </div>
                     <div class="contact-card">
                         <i class="fas fa-envelope"></i>
@@ -1780,12 +2338,13 @@
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
+                        <p class="contact-helper">Send your request directly to WhatsApp with this form. I will receive your message instantly.</p>
                         <input type="text" placeholder="Your Name" required id="contactName">
                         <input type="email" placeholder="Your Email" required id="contactEmail">
                         <input type="text" placeholder="Subject" id="contactSubject">
                         <textarea rows="5" placeholder="Your Message" required id="contactMessage"></textarea>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                            <i class="fas fa-paper-plane"></i> Send via WhatsApp
                         </button>
                     </form>
                 </div>
@@ -2071,13 +2630,17 @@ Last Updated: March 2026`;
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    const name = document.getElementById('contactName')?.value;
-                    const email = document.getElementById('contactEmail')?.value;
-                    const message = document.getElementById('contactMessage')?.value;
-                    
+                    const name = document.getElementById('contactName')?.value.trim();
+                    const email = document.getElementById('contactEmail')?.value.trim();
+                    const subject = document.getElementById('contactSubject')?.value.trim();
+                    const message = document.getElementById('contactMessage')?.value.trim();
+
                     if (name && email && message) {
-                        // In production, this would send to a backend API
-                        showToast(`Thank you ${name}! I'll get back to you soon.`);
+                        const whatsappNumber = '919303216350';
+                        const text = encodeURIComponent(`Hello Ramchand, my name is ${name}. Email: ${email}. Subject: ${subject || 'Project inquiry'}. Message: ${message}`);
+                        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
+                        window.open(whatsappUrl, '_blank');
+                        showToast(`Opening WhatsApp. Your message is ready to send.`);
                         contactForm.reset();
                     } else {
                         showToast('Please fill all required fields.', false);
@@ -2105,6 +2668,46 @@ Last Updated: March 2026`;
             }
         }
 
+        function initProjectFilters() {
+            const buttons = document.querySelectorAll('.project-filter button');
+            const cards = document.querySelectorAll('.project-card');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buttons.forEach(btn => btn.classList.toggle('active', btn === button));
+                    const category = button.dataset.category;
+
+                    cards.forEach(card => {
+                        const shouldShow = category === 'all' || card.dataset.category === category;
+                        card.style.display = shouldShow ? 'grid' : 'none';
+                    });
+                });
+            });
+        }
+
+        function initProjectCounters() {
+            const counters = document.querySelectorAll('.project-counter h3');
+
+            counters.forEach((counter) => {
+                const target = parseInt(counter.textContent.replace('+', ''), 10) || 0;
+                const keepPlus = counter.dataset.plus === 'true';
+                let current = 0;
+                const increment = Math.max(1, Math.ceil(target / 30));
+
+                const update = () => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = keepPlus ? `${target}+` : `${target}`;
+                    } else {
+                        counter.textContent = `${current}`;
+                        requestAnimationFrame(update);
+                    }
+                };
+
+                requestAnimationFrame(update);
+            });
+        }
+
         // ==================== SCROLL ANIMATIONS ====================
         function initScrollAnimations() {
             const observerOptions = { 
@@ -2127,6 +2730,18 @@ Last Updated: March 2026`;
                 el.style.transition = 'all 0.6s ease';
                 observer.observe(el);
             });
+
+            // Stagger animation for skill items
+            document.querySelectorAll('.skill-category').forEach((category, categoryIndex) => {
+                const items = category.querySelectorAll('.skill-item');
+                items.forEach((item, itemIndex) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    item.style.animationDelay = `${(categoryIndex * 0.1) + (itemIndex * 0.05)}s`;
+                    item.classList.add('stagger');
+                    observer.observe(item);
+                });
+            });
         }
 
         // ==================== INITIALIZATION ====================
@@ -2135,6 +2750,8 @@ Last Updated: March 2026`;
             fetchGitHubData();
             initContactForm();
             initProjectLinks();
+            initProjectFilters();
+            initProjectCounters();
             initScrollAnimations();
             
             const resumeBtn = document.getElementById('downloadResumeBtn');
