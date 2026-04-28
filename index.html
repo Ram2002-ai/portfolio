@@ -25,23 +25,26 @@
         }
 
         :root {
-            --primary: #0a66c2;
-            --primary-dark: #004182;
-            --primary-light: #1e88e5;
-            --secondary: #7c3aed;
-            --accent: #f59e0b;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --gray: #64748b;
-            --gray-light: #f8fafc;
+            --primary: #ff4f2a;
+            --primary-dark: #e23d1a;
+            --primary-light: #ff7a45;
+            --secondary: #ffb15c;
+            --accent: #ff6f1f;
+            --dark: #332f2f;
+            --dark-light: #4a4039;
+            --gray: #5f6368;
+            --gray-light: #fff7f0;
             --white: #ffffff;
             --success: #10b981;
             --danger: #ef4444;
-            --border: #e2e8f0;
+            --border: #f0dfd2;
+            --cream: #f4eee6;
+            --cream-soft: #fff3ea;
+            --ink: #232b3a;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 24px 60px -20px rgb(255 79 42 / 0.35);
         }
 
         body {
@@ -49,7 +52,7 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
-            background: var(--gray-light);
+            background: var(--cream);
         }
 
         .container {
@@ -107,10 +110,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background: rgba(244, 238, 230, 0.96);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(240, 223, 210, 0.8);
             transition: all 0.3s ease;
         }
 
@@ -119,9 +122,9 @@
         }
 
         .nav-container {
-            max-width: 1280px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -137,31 +140,32 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: white;
+            color: var(--primary);
             font-size: 1rem;
         }
 
         .logo-text {
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--dark);
+            font-size: 1.35rem;
+            color: var(--primary);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.4rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--ink);
             font-weight: 500;
             transition: color 0.3s;
             font-size: 0.95rem;
@@ -176,9 +180,9 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            font-weight: 500;
+            padding: 0.85rem 1.6rem;
+            border-radius: 14px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
@@ -212,22 +216,31 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
-            background: linear-gradient(135deg, var(--gray-light) 0%, var(--white) 100%);
+            padding-top: 84px;
+            background:
+                linear-gradient(90deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 239, 226, 0.82) 38%, rgba(255, 111, 31, 0.18) 100%),
+                radial-gradient(circle at 82% 34%, rgba(255, 111, 31, 0.8), transparent 34%),
+                linear-gradient(135deg, #fffaf6 0%, #ffe2cf 55%, #ff6f1f 100%);
+            overflow: hidden;
+            position: relative;
         }
 
         .hero-container {
-            max-width: 1280px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 2rem;
+            padding: clamp(2rem, 6vh, 4.8rem) 3rem clamp(2rem, 5vh, 4rem);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
+            gap: 2rem;
             align-items: center;
+            width: 100%;
         }
 
         .hero-content {
             animation: slideInLeft 0.8s ease;
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-badge {
@@ -236,40 +249,43 @@
 
         .badge-text {
             display: inline-block;
-            background: rgba(10, 102, 194, 0.1);
+            background: rgba(255, 111, 31, 0.1);
             color: var(--primary);
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1.35rem;
             border-radius: 30px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
         .hero-title {
-            font-size: 3.8rem;
+            font-size: 4.45rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+            line-height: 1.08;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
         }
 
         .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), #ff8a32);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            font-size: 1.35rem;
+            color: var(--ink);
+            margin-bottom: 2.2rem;
+            line-height: 1.65;
         }
 
         .hero-buttons {
@@ -283,9 +299,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.9rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 16px;
+            font-weight: 800;
             text-decoration: none;
             transition: all 0.3s;
             cursor: pointer;
@@ -296,19 +312,19 @@
         .btn-primary {
             background: var(--primary);
             color: white;
-            box-shadow: 0 4px 14px rgba(10, 102, 194, 0.3);
+            box-shadow: 0 18px 35px -18px rgba(255, 79, 42, 0.8);
         }
 
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(10, 102, 194, 0.4);
+            box-shadow: 0 20px 42px -18px rgba(255, 79, 42, 0.9);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--dark);
+            border: 2px solid rgba(255, 111, 31, 0.35);
         }
 
         .btn-secondary:hover {
@@ -318,9 +334,9 @@
         }
 
         .btn-outline {
-            background: transparent;
-            color: var(--gray);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--ink);
+            border: 1px solid rgba(255, 111, 31, 0.28);
         }
 
         .btn-outline:hover {
@@ -330,7 +346,7 @@
 
         .hero-stats {
             display: flex;
-            gap: 2rem;
+            gap: 2.4rem;
             flex-wrap: wrap;
         }
 
@@ -352,33 +368,52 @@
 
         .hero-image {
             animation: slideInRight 0.8s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: min(560px, calc(100vh - 180px));
+            z-index: 1;
         }
 
         .avatar-circle {
-            width: 380px;
-            height: 380px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: clamp(360px, min(46vw, calc(100vh - 190px)), 620px);
+            height: clamp(360px, min(46vw, calc(100vh - 190px)), 620px);
+            padding: 14px;
+            background: linear-gradient(135deg, #ff8f3f 0%, #ff6f1f 48%, #d94018 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9rem;
+            font-size: 10rem;
             color: white;
             box-shadow: var(--shadow-xl);
-            animation: float 4s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
             position: relative;
             overflow: hidden;
+            isolation: isolate;
         }
 
         .avatar-circle::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            inset: 14px;
+            border-radius: 50%;
+            background: var(--cream-soft);
+            animation: none;
+            z-index: 0;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 12%;
+            border-radius: 50%;
+            display: block;
+            position: relative;
+            z-index: 1;
+            filter: saturate(1.04) contrast(1.02);
         }
 
         @keyframes rotate {
@@ -520,12 +555,22 @@
 
         /* ==================== GITHUB STATS SECTION ==================== */
         .github-stats {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
-            color: white;
+            background:
+                linear-gradient(135deg, rgba(255, 247, 240, 0.96) 0%, rgba(255, 226, 207, 0.9) 55%, rgba(255, 111, 31, 0.18) 100%),
+                var(--cream);
+            color: var(--dark);
         }
 
         .github-stats .section-title {
-            color: white;
+            color: var(--dark);
+        }
+
+        .github-stats .section-subtitle {
+            color: var(--ink);
+        }
+
+        .github-stats .section-line {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .github-container {
@@ -536,32 +581,37 @@
         }
 
         .github-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
             padding: 2rem;
             text-align: center;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 111, 31, 0.2);
+            box-shadow: 0 18px 45px -30px rgba(255, 79, 42, 0.5);
         }
 
         .github-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
+            background: var(--white);
+            border-color: rgba(255, 79, 42, 0.45);
+            box-shadow: 0 22px 55px -30px rgba(255, 79, 42, 0.75);
         }
 
         .github-card i {
             font-size: 3rem;
             margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .github-card h3 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            color: var(--dark);
         }
 
         .github-card p {
-            opacity: 0.8;
+            color: var(--gray);
             font-size: 0.9rem;
         }
 
@@ -989,7 +1039,7 @@
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 111, 31, 0.14);
         }
 
         /* ==================== FOOTER ==================== */
@@ -1109,12 +1159,18 @@
 
         /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 1024px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.25rem;
             }
             .avatar-circle {
-                width: 300px;
-                height: 300px;
+                width: clamp(320px, min(440px, 46vw, calc(100vh - 160px)), 440px);
+                height: clamp(320px, min(440px, 46vw, calc(100vh - 160px)), 440px);
                 font-size: 7rem;
             }
         }
@@ -1123,7 +1179,15 @@
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2rem;
+                gap: 1.4rem;
+                padding: 1.4rem 1.5rem 3rem;
+            }
+            .hero-content {
+                margin: 0 auto;
+            }
+            .hero-image {
+                order: -1;
+                min-height: auto;
             }
             .hero-buttons {
                 justify-content: center;
@@ -1141,16 +1205,13 @@
                 flex-direction: column;
                 text-align: center;
             }
-        }
-
-        @media (max-width: 768px) {
             .nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--white);
+                background: var(--cream);
                 flex-direction: column;
                 padding: 1rem;
                 text-align: center;
@@ -1166,6 +1227,9 @@
             .resume-btn {
                 display: none;
             }
+        }
+
+        @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -1179,10 +1243,17 @@
                 font-size: 2rem;
             }
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2.35rem;
             }
             .hero-subtitle {
                 font-size: 1.2rem;
+            }
+            .hero-description {
+                font-size: 1.05rem;
+                margin-bottom: 1.4rem;
+            }
+            .hero-buttons {
+                margin-bottom: 1.4rem;
             }
             .container {
                 padding: 0 1rem;
@@ -1191,9 +1262,13 @@
                 padding: 4rem 0;
             }
             .avatar-circle {
-                width: 250px;
-                height: 250px;
+                width: clamp(210px, min(70vw, 300px, calc(100vh - 320px)), 300px);
+                height: clamp(210px, min(70vw, 300px, calc(100vh - 320px)), 300px);
+                padding: 8px;
                 font-size: 5rem;
+            }
+            .avatar-circle::before {
+                inset: 8px;
             }
         }
 
@@ -1244,7 +1319,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-text">✨ AI/ML Engineer & Data Scientist</span>
+                    <span class="badge-text">AI/ML Engineer & Data Scientist</span>
                 </div>
                 <h1 class="hero-title">
                     Building <span class="highlight">Intelligent Systems</span><br>
@@ -1283,7 +1358,7 @@
             </div>
             <div class="hero-image">
                 <div class="avatar-circle">
-                    <i class="fas fa-user-astronaut"></i>
+                    <img class="profile-photo" src="ram.jpg" alt="Ramchand Sevaiwar">
                 </div>
             </div>
         </div>
