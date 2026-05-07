@@ -164,6 +164,10 @@
             list-style: none;
         }
 
+        .mobile-resume-link {
+            display: none;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--ink);
@@ -1117,14 +1121,13 @@
         }
 
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            max-width: 980px;
+            margin: 0 auto;
         }
 
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
             gap: 1.5rem;
         }
 
@@ -1162,48 +1165,6 @@
 
         .contact-card a:hover {
             color: var(--primary);
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.9rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-family: inherit;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-            background: var(--white);
-        }
-
-        .contact-form input:hover,
-        .contact-form textarea:hover {
-            border-color: rgba(255, 79, 42, 0.2);
-        }
-
-        .contact-helper {
-            margin-bottom: 1rem;
-            color: var(--dark);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.85;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 111, 31, 0.14);
-            transform: translateY(-2px);
-            transition: all 0.3s ease;
         }
 
         /* ==================== FOOTER ==================== */
@@ -1367,9 +1328,6 @@
             .about-content {
                 grid-template-columns: 1fr;
             }
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -1389,6 +1347,9 @@
             }
             .nav-links.active {
                 display: flex;
+            }
+            .mobile-resume-link {
+                display: block;
             }
             .hamburger {
                 display: flex;
@@ -1467,7 +1428,7 @@
 
         /* Print Styles */
         @media print {
-            .navbar, .footer, .resume-btn, .hero-buttons, .contact-form {
+            .navbar, .footer, .resume-btn, .hero-buttons {
                 display: none;
             }
             body {
@@ -1495,10 +1456,11 @@
                 <li><a href="#repositories">GitHub</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="mobile-resume-link"><a href="./ramchand.pdf" download="ramchand.pdf">Resume</a></li>
             </ul>
-            <button class="resume-btn" id="downloadResumeBtn">
+            <a class="resume-btn" href="./ramchand.pdf" download="ramchand.pdf">
                 <i class="fas fa-download"></i> Resume
-            </button>
+            </a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -2318,7 +2280,7 @@
                     <div class="contact-card">
                         <i class="fab fa-whatsapp"></i>
                         <h4>WhatsApp</h4>
-                        <a href="https://wa.me/919303216350" target="_blank">+91-9302163501</a>
+                        <a href="https://wa.me/919302163501" target="_blank">+91-9302163501</a>
                     </div>
                     <div class="contact-card">
                         <i class="fas fa-envelope"></i>
@@ -2335,18 +2297,6 @@
                         <h4>GitHub</h4>
                         <a href="https://github.com/Ram2002-ai" target="_blank">github.com/Ram2002-ai</a>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <p class="contact-helper">Send your request directly to WhatsApp with this form. I will receive your message instantly.</p>
-                        <input type="text" placeholder="Your Name" required id="contactName">
-                        <input type="email" placeholder="Your Email" required id="contactEmail">
-                        <input type="text" placeholder="Subject" id="contactSubject">
-                        <textarea rows="5" placeholder="Your Message" required id="contactMessage"></textarea>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Send via WhatsApp
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -2468,6 +2418,16 @@
 
         // ==================== RESUME DOWNLOAD ====================
         function downloadResume() {
+            const a = document.createElement('a');
+            a.href = 'ramchand.pdf';
+            a.download = 'ramchand.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            showToast('Resume PDF downloaded successfully!');
+            return;
+
             const resumeContent = `RAMCHAND SEVAIWAR - AI/ML ENGINEER
 ========================================
 
@@ -2624,31 +2584,6 @@ Last Updated: March 2026`;
             });
         }
 
-        // ==================== FORM HANDLING ====================
-        function initContactForm() {
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const name = document.getElementById('contactName')?.value.trim();
-                    const email = document.getElementById('contactEmail')?.value.trim();
-                    const subject = document.getElementById('contactSubject')?.value.trim();
-                    const message = document.getElementById('contactMessage')?.value.trim();
-
-                    if (name && email && message) {
-                        const whatsappNumber = '919303216350';
-                        const text = encodeURIComponent(`Hello Ramchand, my name is ${name}. Email: ${email}. Subject: ${subject || 'Project inquiry'}. Message: ${message}`);
-                        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
-                        window.open(whatsappUrl, '_blank');
-                        showToast(`Opening WhatsApp. Your message is ready to send.`);
-                        contactForm.reset();
-                    } else {
-                        showToast('Please fill all required fields.', false);
-                    }
-                });
-            }
-        }
-
         // ==================== PROJECT LINK HANDLERS ====================
         function initProjectLinks() {
             const realEstateLink = document.getElementById('realEstateLink');
@@ -2748,16 +2683,10 @@ Last Updated: March 2026`;
         document.addEventListener('DOMContentLoaded', () => {
             initNavigation();
             fetchGitHubData();
-            initContactForm();
             initProjectLinks();
             initProjectFilters();
             initProjectCounters();
             initScrollAnimations();
-            
-            const resumeBtn = document.getElementById('downloadResumeBtn');
-            if (resumeBtn) {
-                resumeBtn.addEventListener('click', downloadResume);
-            }
         });
     </script>
 </body>
